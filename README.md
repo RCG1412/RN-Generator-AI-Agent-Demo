@@ -12,49 +12,8 @@ Reads Jira - Pulls tickets for a specific version, filtering by status "Done" an
 
 ## Architecture Diagram
 
-```
-Jira Tickets (Status: Done)
-        │
-        ▼
-┌─────────────────┐
-│   Skill 1:      │
-│   The Writer    │──→ Output/UserGuide/[version]-guide.md
-│                 │──→ Output/ReleaseNotes/[version]-notes.md
-└────────┬────────┘
-         │
-         ▼ (Auto-trigger: "Would you like to run quality evaluation?")
-         │
-┌─────────────────┐
-│   Skill 2:      │──→ Output/QualityReports/[version]-guide-eval.md
-│   Quality       │──→ Output/QualityReports/[version]-notes-eval.md
-│   Checker       │
-└────────┬────────┘
-         │
-         ▼ (Auto-trigger: "Would you like to create staging PR?")
-         │
-┌─────────────────┐
-│   PR #1:        │
-│   Staging       │──→ internal/user-guides/
-│   Review        │──→ internal/release-notes/
-│                 │──→ internal/quality-reports/ (.md only, internal)
-└────────┬────────┘
-         │
-         ▼ (Tech writers preview and edit)
-         │
-┌─────────────────┐
-│   PR #2:        │
-│   Production    │──→ docs/user-guides/
-│   Deployment    │──→ docs/release-notes/
-│                 │    (NO quality reports in production)
-└────────┬────────┘
-         │
-         ▼ (CI/CD auto-deploys)
-         │
-┌─────────────────┐
-│   Production    │
-│   Website       │──→ https://[USER].github.io/ai-docs-demo/
-└─────────────────┘
-```
+<img width="1266" height="2086" alt="image" src="https://github.com/user-attachments/assets/ee6c6c13-4a60-40aa-998d-7ab0d86b3191" />
+
 ## Key Features
 - **Label-based categorization:** Stories with new_features label go to "New Features" section, Stories with enhancements label go to "Enhancements" section
 - **Status filtering:** Only tickets with status "Done" are included
