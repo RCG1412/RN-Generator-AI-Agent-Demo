@@ -1,0 +1,22 @@
+# Dependencies (too large for GitHub)
+node_modules/
+
+# Build output (auto-generated)
+build/
+Agents/mcp-servers/quality-metric-mcp/dist/
+Agents/mcp-servers/writing-rules-mcp/dist/
+
+# Environment variables & Secrets (NEVER commit)
+.env
+.env.local
+Agents/configs/jira-credentials.json
+Agents/configs/atlassian-mcp-credentials.json
+*.token
+*.secret
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.cursor/
+.vscode/
+.idea/

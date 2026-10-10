@@ -1,0 +1,51 @@
+{
+    "jira": {
+      "url": "https://rgtwtai.atlassian.net/jira/software/projects/PROJ",
+      "email": "iridescent1411@gmail.com",
+      "api_token": "ATATT3xFfGF0Pp6uzVExSZnTyKhI1mfBPZta5IYZRjV6JUvDU8HaSB9wWt8RUjowRZJZHAyhI0Oihol3pHSnQwXTHSuWXiPnMmnzDY-bDz5wcTYkmRGgb1w_2zPom6-DCPifVSQZ9cuKs4J9_i-zUIw5c5oFNAWZ0gP7MhktJmAnnHZhyO8URPA=7F03908A",
+      "project_key": "PROJ"
+    },
+    "version_parameter": {
+      "description": "Version is passed dynamically at runtime by the user",
+      "usage": "User invokes: /doc-writer for Version {version}",
+      "example_1": "/doc-writer for Version 1.2 → reads tickets with fixVersion = 1.2",
+      "example_2": "/doc-writer for Version 1.3 → reads tickets with fixVersion = 1.3",
+      "example_3": "/doc-writer for Version 2.0 → reads tickets with fixVersion = 2.0"
+    },
+    "issue_types": ["Epic", "Story", "Bug", "Task"],
+    "required_labels": ["new_features", "enhancements"],
+    "status_filter": "Done",
+    "label_rules": {
+      "new_features": {
+        "section": "New Features",
+        "description": "Brand new functionality added to the product"
+      },
+      "enhancements": {
+        "section": "Enhancements",
+        "description": "Improvements to existing functionality"
+      }
+    },
+    "issue_type_rules": {
+      "Epic": {
+        "section": "Epic Summary",
+        "include_in_release_notes": true,
+        "include_in_user_guide": false
+      },
+      "Story": {
+        "section": "Depends on label",
+        "include_in_release_notes": true,
+        "include_in_user_guide": true,
+        "requires_label": true
+      },
+      "Bug": {
+        "section": "Bug Fixes",
+        "include_in_release_notes": true,
+        "include_in_user_guide": false
+      },
+      "Task": {
+        "section": "Enhancements",
+        "include_in_release_notes": true,
+        "include_in_user_guide": false
+      }
+    }
+  }

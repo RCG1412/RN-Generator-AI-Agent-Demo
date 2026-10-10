@@ -1,0 +1,21 @@
+{
+    "mcpServers": {
+      "quality-metric-mcp": {
+        "command": "node",
+        "args": ["D:\Sample Agents\RN-Generator\RN-Generator-AI-Agent-Demo\Agents\mcp-servers\quality-metric-mcp\dist\index.js"]
+      },
+      "writing-rules-mcp": {
+        "command": "node",
+        "args": ["D:\Sample Agents\RN-Generator\RN-Generator-AI-Agent-Demo\Agents\mcp-servers\writing-rules-mcp\dist\index.js"]
+      },
+      "atlassian-mcp": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-atlassian"],
+        "env": {
+          "JIRA_URL": "https://rgtwtai.atlassian.net/jira/software/projects/PROJ",
+          "JIRA_EMAIL": "iridescent1411@gmail.com",
+          "JIRA_API_TOKEN": "ATATT3xFfGF0Pp6uzVExSZnTyKhI1mfBPZta5IYZRjV6JUvDU8HaSB9wWt8RUjowRZJZHAyhI0Oihol3pHSnQwXTHSuWXiPnMmnzDY-bDz5wcTYkmRGgb1w_2zPom6-DCPifVSQZ9cuKs4J9_i-zUIw5c5oFNAWZ0gP7MhktJmAnnHZhyO8URPA=7F03908A"
+        }
+      }
+    }
+  }

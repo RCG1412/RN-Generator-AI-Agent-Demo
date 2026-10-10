@@ -1,0 +1,46 @@
+{
+    "mcpServer": {
+      "name": "atlassian-mcp",
+      "description": "Connects to Atlassian Jira to read project tickets",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-atlassian"],
+      "env": {
+        "JIRA_URL": "https://rgtwtai.atlassian.net/jira/software/projects/PROJ",
+        "JIRA_EMAIL": "iridescent1411@gmail.com",
+        "JIRA_API_TOKEN": "ATATT3xFfGF0Pp6uzVExSZnTyKhI1mfBPZta5IYZRjV6JUvDU8HaSB9wWt8RUjowRZJZHAyhI0Oihol3pHSnQwXTHSuWXiPnMmnzDY-bDz5wcTYkmRGgb1w_2zPom6-DCPifVSQZ9cuKs4J9_i-zUIw5c5oFNAWZ0gP7MhktJmAnnHZhyO8URPA=7F03908A"
+      }
+    },
+    "permissions": {
+      "read_tickets": true,
+      "write_tickets": false,
+      "read_projects": true,
+      "read_versions": true,
+      "read_labels": true
+    },
+    "default_filters": {
+      "project_key": "REPLACE_WITH_PROJECT_KEY",
+      "status": "Done",
+      "issue_types": ["Epic", "Story", "Bug", "Task"]
+    },
+    "version_handling": {
+      "description": "Version is passed dynamically by the user at runtime",
+      "parameter_name": "{version}",
+      "passed_from": "User command: /doc-writer for Version {version}",
+      "examples": {
+        "user_says": "/doc-writer for Version 1.2",
+        "version_extracted": "1.2",
+        "jira_query_uses": "fixVersion = \"1.2\""
+      }
+    },
+    "jql_templates": {
+      "all_done_tickets": "project = {project_key} AND fixVersion = \"{version}\" AND status = Done",
+      "done_stories_with_new_features_label": "project = {project_key} AND fixVersion = \"{version}\" AND status = Done AND issuetype = Story AND labels = \"new_features\"",
+      "done_stories_with_enhancements_label": "project = {project_key} AND fixVersion = \"{version}\" AND status = Done AND issuetype = Story AND labels = \"enhancements\"",
+      "done_stories_without_label": "project = {project_key} AND fixVersion = \"{version}\" AND status = Done AND issuetype = Story AND labels is EMPTY",
+      "done_bugs": "project = {project_key} AND fixVersion = \"{version}\" AND status = Done AND issuetype = Bug",
+      "done_tasks": "project = {project_key} AND fixVersion = \"{version}\" AND status = Done AND issuetype = Task",
+      "done_epics": "project = {project_key} AND fixVersion = \"{version}\" AND status = Done AND issuetype = Epic",
+      "all_tickets_for_version": "project = {project_key} AND fixVersion = \"{version}\"",
+      "all_tickets_all_statuses": "project = {project_key} AND fixVersion = \"{version}\" ORDER BY status"
+    }
+  }
