@@ -1,0 +1,19 @@
+{
+    "mcpServer": {
+        "name": "atlassian-mcp",
+        "command": "npx",
+        "args": [
+            "-y",
+            "@modelcontextprotocol/server-atlassian"
+        ],
+        "env": {
+            "JIRA_URL": "REPLACE_WITH_YOUR_JIRA_URL",
+            "JIRA_EMAIL": "REPLACE_WITH_YOUR_EMAIL",
+            "JIRA_API_TOKEN": "REPLACE_WITH_YOUR_API_TOKEN"
+        }
+    },
+    "jql_templates": {
+        "all_done_tickets": "project = {project_key} AND fixVersion = \"{version}\" AND status = Done",
+        "all_tickets_for_version": "project = {project_key} AND fixVersion = \"{version}\""
+    }
+}

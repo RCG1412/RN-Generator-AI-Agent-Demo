@@ -1,0 +1,28 @@
+{
+    "mcpServers": {
+        "quality-metric-mcp": {
+            "command": "node",
+            "args": [
+                "REPLACE_WITH_FULL_PATH/Agents/mcp-servers/quality-metric-mcp/dist/index.js"
+            ]
+        },
+        "writing-rules-mcp": {
+            "command": "node",
+            "args": [
+                "REPLACE_WITH_FULL_PATH/Agents/mcp-servers/writing-rules-mcp/dist/index.js"
+            ]
+        },
+        "atlassian-mcp": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@modelcontextprotocol/server-atlassian"
+            ],
+            "env": {
+                "JIRA_URL": "REPLACE_WITH_YOUR_JIRA_URL",
+                "JIRA_EMAIL": "REPLACE_WITH_YOUR_EMAIL",
+                "JIRA_API_TOKEN": "REPLACE_WITH_YOUR_API_TOKEN"
+            }
+        }
+    }
+}

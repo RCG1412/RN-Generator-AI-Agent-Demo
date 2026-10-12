@@ -1,0 +1,20 @@
+name: Deploy to Staging
+on:
+  push:
+    branches: [staging]
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with: { node-version: 18 }
+      - run: npm install
+      - name: Copy internal to docs for build
+        run: |
+          if [ -d "internal/user-guides" ]; then mkdir -p docs/user-guides && cp -r internal/user-guides/* docs/user-guides/ 2>/dev/null || true; fi
+          if [ -d "internal/release-notes" ]; then mkdir -p docs/release-notes && cp -r internal/release-notes/* docs/release-notes/ 2>/dev/null || true; fi
+      - run: npm run build
+        env: { DEPLOY_ENV: staging }
+      - uses: peaceiris/actions-gh-pages@v3
+        with: { github_token: ${{ secrets.GITHUB_TOKEN }}, publish_dir: ./build, destination_dir: staging, keep_files: true }
